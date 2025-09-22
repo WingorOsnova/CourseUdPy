@@ -1,0 +1,18 @@
+{
+  "1": {
+    "name": "Kostya",
+    "surname": "Lysenko",
+    "password": "123456",
+    "email": "kk@gmail.com",
+    "username": "wingor",
+    "role": "user"
+  },
+  "2": {
+    "name": "Dima",
+    "surname": "Laptev",
+    "password": "234425",
+    "email": "dm@gmail.com",
+    "username": "propovich",
+    "role": "user"
+  }
+}

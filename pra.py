@@ -62,3 +62,5 @@
 
 
 # print(filter_str(str_list))
+
+print(__name__)

@@ -1,0 +1,9 @@
+{
+    "id": {
+        "module": "Macbook",
+        "prise": 1200,
+        "year": 2025,
+        "color": "black",
+        "ready_to_sell": true
+    }
+}

@@ -1219,3 +1219,446 @@
 # mm = ExtendedList(test_list)
 # mm.print_element_info()
 # mm.print_element_type()
+
+# class User():
+#     def __init__(self, username, email):
+#         self.username = username
+#         self.email = email
+
+
+# class AdminUser(User):
+#     def __init__(self, username, email, role):
+#         super().__init__(username, email)
+#         self.role = role
+#         self.is_admin = True
+
+#     def __str__(self):
+#         return f"{self.is_admin}"
+
+
+# m_admin = AdminUser("aaas", "asdasfdafaf", "aaasd")
+# print(m_admin)
+
+# class User():
+#     def __init__(self, username: str, email: str):
+#         self.username = username
+#         self.email = email
+
+
+# class Post():
+#     def __init__(self, title: str, text: str, author: User):
+#         self.title = title
+#         self.text = text
+#         self.author = author
+
+
+# class Forum():
+#     def __init__(self):
+#         self.posts = []
+#         self.users = []
+
+#     def register_user(self, username: str, email: str):
+#         for usr in self.users:
+#             if (usr.username == username) or (usr.email == email):
+#                 print("User already exists")
+#                 return usr
+#         user = User(username, email)
+#         self.users.append(user)
+#         print("User is registered")
+#         return user
+
+#     def created_post(self, title, text, author):
+#         post = Post(title, text, author)
+#         self.posts.append(post)
+#         return post
+
+#     def search_user(self, data_input):
+#         for user in self.users:
+#             if user.username == data_input or user.email == data_input:
+#                 return user
+#         raise NameError(
+#             "The user isn't in database, try again or create new account.")
+
+#     def find_posts_by_author(self, author):
+#         all_posts = []
+#         for post in self.posts:
+#             if post.author == author:
+#                 all_posts.append(post)
+#         return all_posts
+
+
+# class NameError(Exception):
+#     pass
+
+
+# forum = Forum()
+
+# oleg = forum.register_user("Oleg", "oleg@gmail.com")
+# oleg_two = forum.register_user("Oleg", "oleg@gmail.com")
+# post_one = forum.created_post('Day', 'first day in England', oleg)
+
+# try:
+#     user_one = forum.search_user("oleg@gmail.com")
+#     if user_one:
+#         print(f"Welcome {user_one.username}")
+
+#     found_posts = forum.find_posts_by_author(oleg)
+#     found_posts_title = [post.title for post in found_posts]
+#     print(found_posts_title)
+# except NameError as ne:
+#     print(ne)
+# дикораторы начал
+
+# def first_decorator(func):
+#     def wrapper(*args, **kwargs):
+#         print("Decorator started")
+#         res = func(*args, **kwargs)
+#         print("Decorator finished")
+#         return res
+#     return wrapper
+
+
+# @first_decorator
+# @first_decorator
+# def my_func(a, b):
+#     return a * b
+
+
+# tes = my_func(1, 2)
+# print(tes)
+# test = print(first_decorator(first_decorator(my_func(1, 2))))
+
+# def log_decorator(func):
+#     def wrapper(*args, **kwargs):
+#         print(f"Function name is {func.__name__}")
+#         print(f"Function arguments are {args}")
+#         if kwargs:
+#             print(f"Function keyword arguments are {kwargs}")
+#         result = func(*args, **kwargs)
+#         print(f"Function returned {result}")
+#         return result
+#     return wrapper
+
+
+# @log_decorator
+# def mult(a, b):
+#     return a * b
+
+
+# print(mult(12, 2))
+
+# import time
+
+
+# def timer(func):
+#     def wapper(*args, **kwargs):
+#         start = time.time()
+#         res = func(*args, **kwargs)
+#         end = time.time()
+#         print(
+#             f"The function: '{func.__name__}' worked: {end - start:.2f} seconds")
+#         return res
+#     return wapper
+
+
+# @timer
+# def test():
+#     time.sleep(3)
+#     print("The func worked finished.")
+
+
+# test = test()
+# print(test)
+
+
+# def validate_args(func):
+#     def wrapper(*args, **kwargs):
+#         for arg in [*args, *kwargs.values()]:
+#             if not isinstance(arg, int) and not isinstance(arg, float):
+#                 raise ValueError(f"Type of the '{arg}' is {type(arg)}",
+#                                  "Type must be int or float")
+#         return func(*args, **kwargs)
+#     return wrapper
+
+
+# @validate_args
+# def mult(a, b):
+#     return a * b
+
+
+# try:
+#     print(mult(20, 33))
+#     print(mult(20, 'abuba'))
+# except ValueError as ve:
+#     print(ve)
+
+# from other import print_sum as ps
+
+
+# def user_is_authenticated():
+#     return True
+
+
+# def check_auth(func):
+#     def wrapper(*args, **kwargs):
+#         if user_is_authenticated():
+#             print("User is authenticated")
+#             return func(*args, **kwargs)
+#         else:
+#             raise Exception("User is not authenticated")
+#     return wrapper
+
+
+# @check_auth
+# def do_something_job():
+#     # something do
+#     print("The job is done")
+
+
+# try:
+#     do_something_job()
+# except Exception as e:
+#     print(e)
+
+# print("main.py", __name__)
+# print("main.py", __name__ == "__main__")
+
+# import json
+
+# data = {
+#     "id": {
+#         "module": "Macbook",
+#         "prise": 1200,
+#         "year": 2025,
+#         "color": "black",
+#         "ready_to_sell": True,
+#     }
+# }
+
+# json_str = json.dumps(data)
+# print(json_str)
+# print(type(json_str))
+# data_dict = json.loads(json_str)
+# print(data_dict)
+# print(type(data_dict))
+
+
+# def save_json(file_path, data):
+#     with open(file_path, "w", encoding='utf-8') as f:
+#         json.dump(data, f, indent=4, ensure_ascii=True)
+
+
+# def load_json(file_path):
+#     with open(file_path, 'r', encoding='utf-8') as f:
+#         return json.load(f)
+
+
+# save_json("data.json", data=data)
+# data = load_json("data.json")
+# print(data)
+# data["id"]["ready_to_sell"] = False
+# save_json('data.json', data)
+# print(data)
+# data['id']['ready_to_sell'] = True
+# save_json('data.json', data)
+# print("\n\n\n\n\n")
+
+# json_stttr = '{"oblect":"Quadrat","Size":24,"Color":"Green" }'
+
+# Dict_qrd = json.loads(json_stttr)
+# print(Dict_qrd)
+# print(type(Dict_qrd))
+# print(Dict_qrd['oblect'])
+# print(Dict_qrd['Size'])
+# print(Dict_qrd['Color'])
+# Dict_qrd["Color"] = "Red"
+# json_stttr = json.dumps(Dict_qrd, indent=4, sort_keys=True, ensure_ascii=False)
+# print(json_stttr)
+# print(type(json_stttr))
+
+# from os import path
+# from pathlib import Path
+
+# fp = Path('test.txt')
+
+# print(fp.cwd())
+# print(Path('main.py').exists())
+# print(Path('/Users/lysenko-kostiantyn/Documents/IT/CourseUdPy').exists())
+# print(Path('main.py').is_file())
+
+# for f in Path('.').iterdir():
+#     print(f)
+# djfile = Path('/Users/lysenko-kostiantyn/Documents/IT/CourseUdPy/testd')
+
+# if not djfile.exists():
+#     djfile.mkdir()
+
+# if djfile.exists():
+#     djfile.rmdir()
+
+# from pathlib import Path
+
+# with open('new.txt', 'w') as new_file:
+#     new_file.write("AALSDLADLAKDÖADKLAKÖDLKÖLAD \n")
+
+# with open('new.txt', 'a') as new_file:
+#     new_file.write("Second Line \n")
+
+# with open('new.txt', 'r') as new_file:
+#     print(new_file.read())
+
+# Path('new.txt').unlink()
+# print("File deleted")
+
+# with open('new.txt', 'w') as new_file:
+#     new_file.write("new File after deleted\n")
+
+# with open('new.txt', 'a') as new_file:
+#     new_file.write("Second Line \n")
+
+
+# with open('new.txt', 'r') as new_file:
+#     print(new_file.readlines())
+
+# my_file = Path('new.txt')
+# if my_file.exists():
+#     my_file.unlink()
+
+# from pathlib import Path
+# import os
+
+# folder_files_path = Path('files_path')
+
+# folder_files_path.mkdir(exist_ok=True)
+
+# first_file = Path('files_path/first_file.txt')
+# second_file = Path('files_path/second_file.txt')
+
+# if not first_file.exists():
+#     with first_file.open("w") as f_file:
+#         f_file.write("It's first file \nthis second line of first file\nBye!")
+#         print("-File 1 is created\n")
+
+# if not second_file.exists():
+#     with second_file.open("w") as s_file:
+#         s_file.write(
+#             "It's second file \nthis second line of second file\nBye!")
+#         print("-File 2 is created\n")
+
+# if first_file.exists():
+#     with first_file.open('r') as f_file:
+#         print("----------------")
+#         print(f_file.read())
+#         print("\nFile 1 is read")
+#         print("----------------")
+
+# if second_file.exists():
+#     with second_file.open('r') as s_file:
+#         while True:
+#             line = s_file.readline()
+#             print(line)
+#             if not line:
+#                 print("File 2 is read with loop'WHILE'.")
+#                 print("----------------")
+#                 break
+
+
+# if first_file.exists():
+#     with first_file.open('r') as f_f:
+#         for line in f_f.readlines():
+#             print(line)
+#         print("\nFile 1 is read with loop'FOR'.")
+#         print("----------------")
+
+# if first_file.exists():
+#     first_file.unlink()
+#     print("File 1 is deleted")
+
+# if second_file.exists():
+#     second_file.unlink()
+#     print("File 2 is deleted")
+
+# if folder_files_path.exists():
+#     folder_files_path.rmdir()
+#     print("Folder is deleted")
+
+# print("_________________________________________")
+# print("OS:")
+
+# os.makedirs("files_os", exist_ok=True)
+# print("Folder 'files_os' is created")
+
+# if not os.path.exists("files_os/first_file.txt"):
+#     with open("files_os/first_file.txt", "w") as ff:
+#         ff.write("Hi, its ff in os\nbye!")
+#         print("File 'first_file.txt' is created")
+
+# if not os.path.exists("files_os/second_file.txt"):
+#     with open("files_os/second_file.txt", "w") as sf:
+#         sf.write("Hi, its sf in os\nbye!")
+#         print("File 'second_file.txt' is created")
+
+
+# if os.path.exists("files_os/first_file.txt"):
+#     with open("files_os/first_file.txt", "r") as ff:
+#         print("----------------")
+#         print(ff.read())
+#         print("\nFile 1 is read")
+#         print("----------------")
+
+# if os.path.exists("files_os/second_file.txt"):
+#     with open("files_os/second_file.txt", "r") as sf:
+#         while True:
+#             line = sf.readline()
+#             print(line)
+#             if not line:
+#                 print("File 2 is read with loop'WHILE'.")
+#                 print("----------------")
+#                 break
+
+# if os.path.exists("files_os/first_file.txt"):
+#     os.remove("files_os/first_file.txt")
+#     print("File 1 is deleted")
+#     print("----------------")
+
+# if os.path.exists("files_os/second_file.txt"):
+#     os.remove("files_os/second_file.txt")
+#     print("File 2 is deleted")
+#     print("----------------")
+
+# os.rmdir("files_os")
+
+# from zipfile import ZipFile
+# from pathlib import Path
+
+# folder = Path('folder_for_zip')
+
+# folder.mkdir(exist_ok=True)
+
+# with open(folder/"fist.txt", "w") as ff:
+#     ff.write("This first file.")
+
+# with open(folder/"second.txt", "w") as sf:
+#     sf.write("This second file")
+
+# with ZipFile("folder_for_zip.zip", 'w') as archive:
+#     for file in folder.iterdir():
+#         archive.write(file)
+
+# with ZipFile("folder_for_zip.zip", 'r') as archive:
+#     print(archive.namelist())
+#     archive.extractall("extract_folder")
+#     print(archive.testzip())
+
+from pathlib import Path
+
+folder_test = Path("test_folder")
+
+folder_test.mkdir(exist_ok=True)
+
+test_file = Path("test_folder/test_file.txt")
+
+if not test_file.exists():
+    with test_file.open("w") as tf:
+        tf.write("This is test file")
+        print()

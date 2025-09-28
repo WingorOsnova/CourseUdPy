@@ -1650,15 +1650,378 @@
 #     archive.extractall("extract_folder")
 #     print(archive.testzip())
 
-from pathlib import Path
+# import csv
 
-folder_test = Path("test_folder")
+# data = [
+#     ["name", "age", "grade"],
+#     ["Alex", 17, "A"],
+#     ["Mila", 16, "B"],
+#     ["Max", 18, "C"],
+# ]
 
-folder_test.mkdir(exist_ok=True)
+# d_data = [
+#     {"name": "Alex", "age": 17, "grade": "A"},
+#     {"name": "Mila", "age": 16, "grade": "B"},
+#     {"name": "Max", "age": 18, "grade": "C"},
+# ]
 
-test_file = Path("test_folder/test_file.txt")
+# with open('test.csv', 'w', newline="", encoding='utf-8') as csv_file:
+#     fieldnames = ['name', 'age', 'grade']
+#     writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
+#     writer.writeheader()
+#     writer.writerows(d_data)
 
-if not test_file.exists():
-    with test_file.open("w") as tf:
-        tf.write("This is test file")
-        print()
+# from datetime import date
+
+# md = date.today()
+# print(md)
+# print(md.year)
+# print(md.month)
+# print(md.day)
+# print(md.isocalendar())
+# print(md.isoformat())
+# print(md.ctime())
+
+# from datetime import time, datetime, timedelta
+
+# mt = datetime.now()
+
+# print(mt.strftime('%d/%b/%Y %H:%M:%S'))
+
+# import random
+
+# num = random.randint(1, 10)
+# print(num)
+
+# print([x for x in dir(random) if not x.startswith('_')])
+# print(random.choice([1, 2, 34, 5, 6, 7,]))
+# print(random.choices([12, 3, 1, 5, 5, 5, 23, 62, 6], k=3))
+
+# mm = [12, 3, 1, 5, 5, 5, 23, 62, 6]
+# random.shuffle(mm)
+# print(mm)
+
+# chars = "abcdfghijklmnopqrstuvwxyzABCDFGHIJKLMNOPQRSTUVWXYZ1234567890."
+
+# pw_dict = dict()
+# for x in range(6):
+#     password = str("".join(random.choices(chars, k=8)))
+#     # password_dict = {id: v for id, v in enumerate(password)}
+#     # print(password_dict)
+#     print(x + 1, password)
+#     pw_dict[x + 1] = password
+# print(pw_dict)
+
+# import secrets
+# import string
+# import json
+
+# chars_lnp = string.ascii_letters + string.digits + string.punctuation
+
+# pasword = "".join(secrets.choice(chars_lnp) for n in range(12))
+
+# dict_passord = dict()
+# for n in range(10):
+#     pasword = "".join(secrets.choice(chars_lnp) for n in range(12))
+#     dict_passord[n + 1] = pasword
+
+
+# for k, v in dict_passord.items():
+#     print(k, v)
+
+# with open("password.json", 'w', encoding='utf-8', ) as f:
+#     json.dump(dict_passord, f, indent=4, ensure_ascii=False, sort_keys=True)
+#     print("DONE")
+
+# def factorial_calc(num):
+#     if num == 1:
+#         return 1
+#     return num * factorial_calc(num - 1)
+
+# print(factorial_calc(19))
+# import re
+
+# text = "Email: test123@gmail.com, backup: info@mail.ru"
+# my_pattern2 = re.compile(r"(\w+)@(\w+\.\w+)")
+
+
+# def check_validation_email(email):
+#     my_pattern = re.compile(r"(\w+)@(\w+\.\w+)")
+#     validation_res = "valid" if my_pattern.fullmatch(email) else "not_valid"
+#     return (email, validation_res)
+
+
+# print(check_validation_email("test123@gmail.com"))
+
+# def check_password(password):
+#     password_pattern = re.compile(
+#         r"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])\S{8,}$")
+#     validation_res = "valid" if password_pattern.fullmatch(
+#         password) else "not_valid"
+#     return validation_res
+
+
+# def check_email(email):
+#     email_pattern = re.compile(r"(\w+)@(\w+\.\w+)")
+#     validation_res = "valid" if email_pattern.fullmatch(email) else "not_valid"
+#     return validation_res
+
+
+# input_password = input("""(Your password must have ONE smal liter,ONE big liter,ONE number,ONE special char'!@#$%^&*')
+#                        Enter a password:
+#                        """)
+# input_email = input("Enter a email: ")
+# print("Email is : ", check_email(input_email))
+# print("Password is : ", check_password(input_password))
+
+# from email.message import EmailMessage
+# import smtplib
+# from string import Template
+# from pathlib import Path
+
+# html_content = Path('templats/index.html').read_text()
+
+# first_email = EmailMessage()
+
+# first_email['from'] = 'kl@gmail.com'
+# first_email['to'] = 'test@gmail.com'
+# first_email['subject'] = 'Email with image'
+# first_email.set_content(html_content, subtype='html')
+
+# with open("images/ima.png", 'rb') as img:
+#     img_data = img.read()
+#     first_email.add_attachment(
+#         img_data, maintype='image', subtype='png', filename='ima.png')
+
+# with smtplib.SMTP(host="localhost", port=2525) as server:
+#     server.ehlo()
+#     server.send_message(first_email)
+#     print("Email wast sent!")
+
+# import sqlite3
+
+# DB_NAME = "sqlite_db.db"
+
+# with sqlite3.connect(DB_NAME) as conn:
+#     date = conn.execute("SELECT * FROM courses")
+#     for row in date:
+#         print(row)
+
+
+# courses = [
+#     (100, "Python course", 1900, 234),
+#     (200, "Java course", 259, 24),
+# ]
+
+# with sqlite3.connect(DB_NAME) as conn:
+#     conn.executemany("INSERT INTO courses VALUES (?, ?, ?, ?)", courses)
+#     conn.commit()
+
+# create new table
+# with sqlite3.connect(DB_NAME) as conn:
+#     sql_request = """CREATE TABLE IF NOT EXISTS courses(
+#         id integer PRIMARY KEY,
+#         title text NOT NULL,
+#         students_qty integer,
+#         reviews_qty integer
+#     );"""
+#     conn.execute(sql_request)
+
+# 📌 Задание: Мини-база для библиотеки
+
+# Создай базу данных library.db и таблицу books со структурой:
+
+# id — INTEGER PRIMARY KEY AUTOINCREMENT
+
+# title — название книги (TEXT, обязательно)
+
+# author — автор (TEXT, обязательно)
+
+# year — год издания (INTEGER, обязательно)
+
+# available — доступна ли книга (INTEGER, по умолчанию 1 = доступна, 0 = выдана)
+
+# 🔹 Твои шаги
+
+# Создай базу и таблицу.
+
+# Добавь 3 книги (любые).
+
+# Выведи все книги.
+
+# Сделай запрос: показать только книги, доступные для выдачи (available = 1).
+
+# Обнови статус одной книги (available = 0).
+
+# Удали книгу по id.
+# import sqlite3
+# import os
+
+# DB_NAME = 'library.db'
+
+# with sqlite3.connect(DB_NAME) as conn:
+#     cursor = conn.cursor()
+#     cursor.execute("""CREATE TABLE IF NOT EXISTS books(
+#         id INTEGER PRIMARY KEY AUTOINCREMENT,
+#         title TEXT NOT NULL,
+#         author TEXT NOT NULL,
+#         year INTEGER NOT NULL,
+#         available INTEGER CHECK(available in (0,1)) DEFAULT 1
+#     );""")
+
+
+# def add_book(title: str, author: str, year: int, available=1):
+#     with sqlite3.connect(DB_NAME) as conn:
+#         cursor = conn.cursor()
+#         cursor.execute("INSERT INTO books (title,author,year,available) VALUES(?,?,?,?)",
+#                        (title, author, year, available))
+#         conn.commit()
+#         print("Book is added")
+
+
+# def show_all_books():
+#     with sqlite3.connect(DB_NAME) as conn:
+#         cursor = conn.cursor()
+#         return cursor.execute("SELECT * FROM books").fetchall()
+
+
+# def show_available_books():
+#     with sqlite3.connect(DB_NAME) as conn:
+#         cursor = conn.cursor()
+#         return cursor.execute("SELECT * FROM books WHERE available = 1").fetchall()
+
+
+# def change_available_books(book_id, available):
+#     with sqlite3.connect(DB_NAME) as conn:
+#         cursor = conn.cursor()
+#         cursor.execute("SELECT available FROM books WHERE id = ?", (book_id,))
+#         row = cursor.fetchone()
+#         if not row:
+#             raise Bookidforchenge("Книги с таким id нет!")
+#         if row[0] == available:
+#             raise Bookchangeavailb("Статус книги уже такой же!")
+#         cursor.execute(
+#             "UPDATE books SET available = ? WHERE id = ?", (available, book_id))
+#         conn.commit()
+#         print("Status is changed")
+
+
+# def delete_book(book_id):
+#     with sqlite3.connect(DB_NAME) as conn:
+#         cursor = conn.cursor()
+#         cursor.execute("SELECT * FROM books WHERE id = ?", (book_id,))
+#         if not cursor.fetchone():
+#             raise Bookidiszero("Такой книги нет в библиотеке!")
+
+
+# def clear_console():
+#     os.system('cls' if os.name == 'nt' else 'clear')
+
+
+# class Bookidiszero(Exception):
+#     pass
+
+
+# class Bookidforchenge(Exception):
+#     pass
+
+
+# class Bookchangeavailb(Exception):
+#     pass
+
+
+# while True:
+#     try:
+#         print("""
+#             PROGRAMM BOOKS LIBARY!
+#             1.Add book
+#             2.Show all books
+#             3.Show available books
+#             4.Change available books
+#             5.Delete book
+#             0.Exit
+#     """)
+#         try:
+#             i_a = int(input("Enter your action: "))
+#             if i_a > 5 or i_a < 0:
+#                 raise ValueError
+#         except ValueError:
+#             print("Action must be a number!!!")
+#             continue
+#         if i_a == 1:
+#             try:
+#                 print("(Enter'Q/q' if you want to exit)")
+#                 title = str(input("Enter title: "))
+#                 if (title == "Q") or (title == "q"):
+#                     print("Exit from 'Add book'")
+#                     continue
+#                 author = str(input("Enter author: "))
+#                 if (author == "Q") or (author == "q"):
+#                     print("Exit from 'Add book'")
+#                     continue
+#                 year = int(input("Enter year: "))
+#                 add_book(title=title, author=author, year=year)
+#             except ValueError as ve:
+#                 print(ve)
+#         elif i_a == 2:
+#             print("All books:")
+#             for book in show_all_books():
+#                 print(
+#                     f"ID: {book[0]} | {book[1]} by {book[2]} ({book[3]}) | Available: {'✔' if book[4] else '✘'}")
+#         elif i_a == 3:
+#             show_available_books()
+#             print("Available books:")
+#             for book in show_available_books():
+#                 print(book)
+#         elif i_a == 4:
+#             try:
+#                 input_chage_available = int(
+#                     input("Enter number '1' = available, '0' = not available: "))
+#                 if (input_chage_available < 0) or (input_chage_available > 1):
+#                     raise Bookchangeavailb("The number must be '1' or '0'")
+#                 if input_chage_available > 1 or input_chage_available < 0:
+#                     raise ValueError
+#                 input_book_id = int(
+#                     input("Enter the id of book wich you want to change: "))
+#                 if input_book_id <= 0:
+#                     raise Bookidiszero(
+#                         "Id below zero can't be used!!!")
+#                 change_available_books(
+#                     book_id=input_book_id, available=input_chage_available)
+#             except ValueError as ve:
+#                 print("Inpoted must be 'number'!!!")
+#             except Bookidiszero as be:
+#                 print(be)
+#             except Bookidforchenge as bfc:
+#                 print(bfc)
+#             except Bookchangeavailb as bca:
+#                 print(bca)
+#         elif i_a == 5:
+#             try:
+#                 input_delete_book = int(input(
+#                     "Enter the id of book wich you want to delete: "))
+#                 delete_book(input_delete_book)
+#             except Bookidiszero as biz:
+#                 print(biz)
+#             except ValueError:
+#                 print("Inpoted must be 'number'!!!")
+#         elif i_a == 0:
+#             print("BYE!!!")
+#             clear_console()
+#             exit()
+#     except KeyboardInterrupt:
+#         print()
+#         print("Exit with Ctrl+C")
+#         exit()
+
+# add_book(title="Harry Potter", author="J.K. Rowling", year=1997)
+# add_book(title="The Lord of the Rings",
+#          author="J.R.R. Tolkien", year=1954)
+# add_book(title="The Hobbit", author="J.R.R. Tolkien", year=1937)
+# print(show_all_books())
+# print(show_available_books())
+# print(show_all_books())
+# change_available_books(name_book="The Hobbit", available=0)
+# print(show_all_books())
+# print(show_available_books()
+

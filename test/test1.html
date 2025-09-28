@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Портфолио | Web & TG Bots</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <!-- 🔤 Глобальные переключатели языков (должны быть ПЕРЕД контентом) -->
+    <input type="radio" name="lang" id="ru" class="lang-toggle" checked />
+    <input type="radio" name="lang" id="en" class="lang-toggle" />
+    <input type="radio" name="lang" id="de" class="lang-toggle" />
+
+    <!-- Весь сайт внутри .page чтобы CSS умел показывать нужный язык -->
+    <div class="page">
+        <!-- Навигация -->
+        <header>
+            <nav class="navbar">
+                <div class="logo">WinGor</div>
+
+                <!-- Бургер меню -->
+                <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+                <label for="menu-toggle" class="menu-icon" aria-label="Открыть меню">☰</label>
+
+                <!-- ТРИ списка навигации под разные языки -->
+                <ul class="nav-links lang ru">
+                    <li><a href="#about">Обо мне</a></li>
+                    <li><a href="#projects">Проекты</a></li>
+                    <li><a href="#contact">Контакты</a></li>
+                </ul>
+                <ul class="nav-links lang en">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <ul class="nav-links lang de">
+                    <li><a href="#about">Über mich</a></li>
+                    <li><a href="#projects">Projekte</a></li>
+                    <li><a href="#contact">Kontakt</a></li>
+                </ul>
+
+                <!-- Кнопки RU | EN | DE (просто label’ы к радио сверху) -->
+                <div class="lang-switch">
+                    <label for="ru" class="pill">RU</label>
+                    <label for="en" class="pill">EN</label>
+                    <label for="de" class="pill">DE</label>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Hero -->
+        <section class="hero">
+            <div class="lang ru">
+                <h1>Привет! 👋 Я Kostya</h1>
+                <p>Фрилансер • Web-разработка • Telegram-боты</p>
+                <a href="#contact" class="btn">Связаться</a>
+            </div>
+            <div class="lang en">
+                <h1>Hello! 👋 I'm Kostya</h1>
+                <p>Freelancer • Web Development • Telegram Bots</p>
+                <a href="#contact" class="btn">Contact</a>
+            </div>
+            <div class="lang de">
+                <h1>Hallo! 👋 Ich bin Kostya</h1>
+                <p>Freelancer • Web-Entwicklung • Telegram-Bots</p>
+                <a href="#contact" class="btn">Kontakt</a>
+            </div>
+        </section>
+
+        <!-- About -->
+        <section id="about" class="about">
+            <h2 class="lang ru">Обо мне</h2>
+            <h2 class="lang en">About Me</h2>
+            <h2 class="lang de">Über mich</h2>
+
+            <p class="lang ru">
+                Я разрабатываю современные сайты и Telegram-ботов: быстро, адаптивно, с упором на UX.
+                Люблю чистый код и понятные интерфейсы.
+            </p>
+            <p class="lang en">
+                I build modern websites and Telegram bots: fast, responsive, and user-centric.
+                I care about clean code and clear UX.
+            </p>
+            <p class="lang de">
+                Ich entwickle moderne Websites und Telegram-Bots: schnell, responsiv und benutzerorientiert.
+                Sauberer Code und klare UX sind mir wichtig.
+            </p>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects" class="projects">
+            <h2 class="lang ru">Мои проекты</h2>
+            <h2 class="lang en">My Projects</h2>
+            <h2 class="lang de">Meine Projekte</h2>
+
+            <div class="project-grid">
+                <article class="project-card">
+                    <h3 class="lang ru">Сайт-визитка</h3>
+                    <h3 class="lang en">Business Website</h3>
+                    <h3 class="lang de">Visitenkarten-Website</h3>
+                    <p class="lang ru">Лёгкая страница для малого бизнеса: услуги, контакты, форма заявки.</p>
+                    <p class="lang en">Lightweight page for small businesses: services, contact, lead form.</p>
+                    <p class="lang de">Leichte Seite für KMU: Leistungen, Kontakt, Anfrageformular.</p>
+                </article>
+
+                <article class="project-card">
+                    <h3 class="lang ru">Telegram-бот</h3>
+                    <h3 class="lang en">Telegram Bot</h3>
+                    <h3 class="lang de">Telegram-Bot</h3>
+                    <p class="lang ru">Автоматизация: заявки, уведомления, интеграции (Google Sheets/CRM).</p>
+                    <p class="lang en">Automation: requests, notifications, integrations (Google Sheets/CRM).</p>
+                    <p class="lang de">Automatisierung: Anfragen, Benachrichtigungen, Integrationen (Sheets/CRM).</p>
+                </article>
+
+                <article class="project-card">
+                    <h3 class="lang ru">Веб-приложение</h3>
+                    <h3 class="lang en">Web App</h3>
+                    <h3 class="lang de">Webanwendung</h3>
+                    <p class="lang ru">Full-stack: авторизация, база, админка, деплой.</p>
+                    <p class="lang en">Full-stack: auth, database, admin panel, deploy.</p>
+                    <p class="lang de">Full-Stack: Login, Datenbank, Admin, Deployment.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="contact">
+            <h2 class="lang ru">Свяжитесь со мной</h2>
+            <h2 class="lang en">Contact Me</h2>
+            <h2 class="lang de">Kontakt</h2>
+
+            <p class="lang ru">Email: <a href="mailto:yourmail@gmail.com">yourmail@gmail.com</a></p>
+            <p class="lang en">Email: <a href="mailto:yourmail@gmail.com">yourmail@gmail.com</a></p>
+            <p class="lang de">E-Mail: <a href="mailto:yourmail@gmail.com">yourmail@gmail.com</a></p>
+
+            <p>Telegram: <a href="https://t.me/yourusername" target="_blank">@yourusername</a></p>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p class="lang ru">© 2025 Kostya | Сделано с ❤️</p>
+            <p class="lang en">© 2025 Kostya | Made with ❤️</p>
+            <p class="lang de">© 2025 Kostya | Gemacht mit ❤️</p>
+        </footer>
+    </div>
+</body>
+
+</html>

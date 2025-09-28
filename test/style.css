@@ -1,0 +1,181 @@
+/* базовое */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #0d1117;
+    color: #e6edf3;
+    line-height: 1.6;
+}
+
+/* скрытые радио */
+.lang-toggle {
+    display: none;
+}
+
+/* переключение языка */
+.lang {
+    display: none;
+}
+
+#ru:checked~.page .lang.ru {
+    display: block;
+}
+
+#en:checked~.page .lang.en {
+    display: block;
+}
+
+#de:checked~.page .lang.de {
+    display: block;
+}
+
+/* header */
+header {
+    background: #161b22;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, .5);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #58a6ff;
+}
+
+nav a {
+    margin: 0 12px;
+    text-decoration: none;
+    color: #e6edf3;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #58a6ff;
+}
+
+/* переключатель языков */
+.lang-switch {
+    display: flex;
+    gap: 8px;
+}
+
+.lang-switch label {
+    cursor: pointer;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    color: #8b949e;
+    border: 1px solid transparent;
+    transition: 0.3s;
+}
+
+.lang-switch label:hover {
+    color: #e6edf3;
+    background: #21262d;
+}
+
+section p {
+    text-align: center;
+}
+
+#ru:checked~.page .lang-switch label[for="ru"],
+#en:checked~.page .lang-switch label[for="en"],
+#de:checked~.page .lang-switch label[for="de"] {
+    color: #58a6ff;
+    border: 1px solid #58a6ff;
+    background: #0d1117;
+    text-align: center;
+}
+
+/* hero */
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+    background: linear-gradient(145deg, #0d1117, #161b22);
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: #8b949e;
+}
+
+/* sections */
+section {
+    padding: 70px 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    color: #58a6ff;
+}
+
+/* проекты в карточках */
+#projects ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 0;
+    list-style: none;
+}
+
+#projects li {
+    background: #161b22;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .4);
+    text-align: center;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+#projects li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px rgba(88, 166, 255, .4);
+}
+
+/* контакты */
+#contact p {
+    text-align: center;
+    margin: 10px 0;
+}
+
+#contact a {
+    color: #58a6ff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#contact a:hover {
+    text-decoration: underline;
+}
+
+/* footer */
+footer {
+    background: #161b22;
+    text-align: center;
+    padding: 20px;
+    color: #8b949e;
+    font-size: 0.9rem;
+    margin-top: 40px;
+}

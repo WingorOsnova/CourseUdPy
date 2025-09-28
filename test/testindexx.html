@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio | WinGor</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <!-- переключатели языка -->
+    <input type="radio" name="lang" id="ru" class="lang-toggle" checked />
+    <input type="radio" name="lang" id="en" class="lang-toggle" />
+    <input type="radio" name="lang" id="de" class="lang-toggle" />
+
+    <div class="page">
+        <!-- шапка -->
+        <header>
+            <div class="logo">WinGor</div>
+            <nav class="lang ru">
+                <a href="#about">Обо мне</a>
+                <a href="#projects">Проекты</a>
+                <a href="#contact">Контакты</a>
+            </nav>
+            <nav class="lang en">
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <nav class="lang de">
+                <a href="#about">Über mich</a>
+                <a href="#projects">Projekte</a>
+                <a href="#contact">Kontakt</a>
+            </nav>
+
+            <!-- кнопки -->
+            <div class="lang-switch">
+                <label for="ru">RU</label>
+                <label for="en">EN</label>
+                <label for="de">DE</label>
+            </div>
+        </header>
+
+        <!-- hero -->
+        <section class="hero">
+            <div class="lang ru">
+                <h1>Привет! 👋 Я Kostya</h1>
+                <p>Фрилансер • Web-разработка • Telegram-боты</p>
+            </div>
+            <div class="lang en">
+                <h1>Hello! 👋 I'm Kostya</h1>
+                <p>Freelancer • Web Development • Telegram Bots</p>
+            </div>
+            <div class="lang de">
+                <h1>Hallo! 👋 Ich bin Kostya</h1>
+                <p>Freelancer • Web-Entwicklung • Telegram-Bots</p>
+            </div>
+        </section>
+
+        <!-- about -->
+        <section id="about">
+            <h2 class="lang ru">Обо мне</h2>
+            <h2 class="lang en">About Me</h2>
+            <h2 class="lang de">Über mich</h2>
+
+            <p class="lang ru">Я создаю сайты и Telegram-ботов для бизнеса и людей.</p>
+            <p class="lang en">I create websites and Telegram bots for businesses and people.</p>
+            <p class="lang de">Ich entwickle Websites und Telegram-Bots für Unternehmen und Menschen.</p>
+        </section>
+
+        <!-- projects -->
+        <section id="projects">
+            <h2 class="lang ru">Мои проекты</h2>
+            <h2 class="lang en">My Projects</h2>
+            <h2 class="lang de">Meine Projekte</h2>
+
+            <ul>
+                <li class="lang ru">Сайт-визитка</li>
+                <li class="lang en">Business Website</li>
+                <li class="lang de">Visitenkarten-Website</li>
+
+                <li class="lang ru">Telegram-бот</li>
+                <li class="lang en">Telegram Bot</li>
+                <li class="lang de">Telegram-Bot</li>
+            </ul>
+        </section>
+
+        <!-- contact -->
+        <section id="contact">
+            <h2 class="lang ru">Связаться</h2>
+            <h2 class="lang en">Contact</h2>
+            <h2 class="lang de">Kontakt</h2>
+
+            <p>Email: <a href="mailto:yourmail@gmail.com">yourmail@gmail.com</a></p>
+            <p>Telegram: <a href="https://t.me/yourusername">@yourusername</a></p>
+        </section>
+
+        <!-- footer -->
+        <footer>
+            <p class="lang ru">© 2025 Kostya | Сделано с ❤️</p>
+            <p class="lang en">© 2025 Kostya | Made with ❤️</p>
+            <p class="lang de">© 2025 Kostya | Gemacht mit ❤️</p>
+        </footer>
+    </div>
+</body>
+
+</html>
